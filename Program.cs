@@ -1,37 +1,27 @@
 ﻿using System;
 
-namespace Abstraction
+namespace Constuctor_Example
 {
-
-    abstract class Animal
+    class Car
     {
-        // Abstract method (does not have a body)
-        public abstract void animalSound();
-        // Regular method
-        public void sleep()
+        public string model; /*Access Modifiers Public,Private(If Public then can be used in other class)
+                                                Private(within the class)*/
+        public string color;
+        public int year;
+
+        // Create a class constructor with multiple parameters
+        public Car(string modelName, string modelColor, int modelYear)
         {
-            Console.WriteLine("Zzz");
+            model = modelName;
+            color = modelColor;
+            year = modelYear;
+        }
+
+        static void Main(string[] args)
+        {
+            Car Ford = new Car("Mustang", "Red", 1969);
+            Console.WriteLine(Ford.color + " " + Ford.year + " " + Ford.model);
         }
     }
-
-    // Derived class (inherit from Animal)
-    class Pig : Animal
-    {
-        public override void animalSound()
-        {
-            // The body of animalSound() is provided here
-            Console.WriteLine("The pig says: wee wee");
-        }
-    }
-
-   class Program
-   {
-    static void Main(string[] args)
-    {
-        Pig myPig = new Pig();  // Create a Pig object
-        myPig.animalSound();
-        myPig.sleep();
-    }
-
-   }
 }
+

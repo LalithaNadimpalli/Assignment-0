@@ -1,37 +1,19 @@
 ﻿using System;
 
-namespace Abstraction
+namespace Polymorphism
 {
-
-    abstract class Animal
-    {
-        // Abstract method (does not have a body)
-        public abstract void animalSound();
-        // Regular method
-        public void sleep()
+   
+        class Program
         {
-            Console.WriteLine("Zzz");
+            static void Main(string[] args)
+            {
+                Animal myAnimal = new Animal();  // Create a Animal object
+                Animal myPig = new Pig();  // Create a Pig object
+                Animal myDog = new Dog();  // Create a Dog object
+
+                myAnimal.animalSound();
+                myPig.animalSound();
+                myDog.animalSound();
+            }
         }
     }
-
-    // Derived class (inherit from Animal)
-    class Pig : Animal
-    {
-        public override void animalSound()
-        {
-            // The body of animalSound() is provided here
-            Console.WriteLine("The pig says: wee wee");
-        }
-    }
-
-   class Program
-   {
-    static void Main(string[] args)
-    {
-        Pig myPig = new Pig();  // Create a Pig object
-        myPig.animalSound();
-        myPig.sleep();
-    }
-
-   }
-}
